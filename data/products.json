@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1731778546042",
+    "name": "Pot",
+    "description": "This pot is beautiful",
+    "image": "/uploads/1731778546031.jpg"
+  },
+  {
+    "id": "1731779258091",
+    "name": "Star Mirror",
+    "description": "Bathroom decorations, beautiful and elegant",
+    "image": "/uploads/1731779258073.jpg"
+  },
+  {
+    "id": "1731782377518",
+    "name": "Card",
+    "description": "Business Card",
+    "image": "/uploads/1731782377509.jpg"
+  },
+  {
+    "id": "1731782423305",
+    "name": "Big Boy",
+    "description": "The biggest mirror in stock yet",
+    "image": "/uploads/1731782423299.jpg"
+  },
+  {
+    "id": "1731782489382",
+    "name": "Marble",
+    "description": "Marble decorated elegant mirror",
+    "image": "/uploads/1731782489376.jpg"
+  },
+  {
+    "id": "1731782587099",
+    "name": "Bottle",
+    "description": "String wrapped bottle? Still beautiful...",
+    "image": "/uploads/1731782587091.jpg"
+  }
+]
