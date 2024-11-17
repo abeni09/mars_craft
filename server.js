@@ -90,6 +90,8 @@ const authenticateAdmin = (req, res, next) => {
         
         next();
     } catch (error) {
+        console.log(error);
+        
         res.status(401).json({ message: 'Invalid authentication token' });
     }
 };
@@ -105,6 +107,11 @@ app.post('/admin/login', (req, res) => {
     } else {
         res.status(401).json({ message: 'Invalid password' });
     }
+});
+
+// Authentication verification route
+app.get('/api/authenticate', authenticateAdmin, (req, res) => {
+    res.json({ message: 'Authenticated' });
 });
 
 // Product Routes
@@ -141,6 +148,46 @@ app.post('/api/products', authenticateAdmin, upload.single('image'), async (req,
     } catch (error) {
         console.error('Error adding product:', error);
         res.status(500).json({ message: 'Failed to add product' });
+    }
+});
+
+app.put('/api/products/:id', authenticateAdmin, upload.single('image'), async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, description } = req.body;
+        const products = await readProducts();
+        const productIndex = products.findIndex(p => p.id === id);
+
+        if (productIndex === -1) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        // Update the product
+        const updatedProduct = {
+            ...products[productIndex],
+            name: name || products[productIndex].name,
+            description: description || products[productIndex].description,
+        };
+
+        // If a new image is uploaded, update the image path
+        if (req.file) {
+            // Delete old image if it exists
+            const oldImagePath = path.join(__dirname, products[productIndex].image);
+            try {
+                await fs.unlink(oldImagePath);
+            } catch (error) {
+                console.error('Error deleting old image:', error);
+            }
+            updatedProduct.image = `/uploads/${req.file.filename}`;
+        }
+
+        products[productIndex] = updatedProduct;
+        await writeProducts(products);
+
+        res.json(updatedProduct);
+    } catch (error) {
+        console.error('Error updating product:', error);
+        res.status(500).json({ message: 'Failed to update product' });
     }
 });
 

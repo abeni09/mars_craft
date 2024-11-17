@@ -217,6 +217,60 @@ body {
     color: #666;
 }
 
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 1% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#edit-product-form {
+    padding-bottom: 20px;
+}
+
+.modal-content .btn-primary {
+    margin-top: 20px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #666;
+}
+
+#currentProductImage {
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 480px) {
     .login-form {

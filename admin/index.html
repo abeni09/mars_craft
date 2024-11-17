@@ -14,7 +14,6 @@
             <h1>Admin Dashboard</h1>
             <button id="logoutBtn" class="btn btn-danger">Logout</button>
         </div>
-
         <div class="add-product-form">
             <h2>Add New Product</h2>
             <form id="add-product-form">
@@ -40,6 +39,32 @@
                 <!-- Products will be loaded dynamically -->
                 <div class="loading">Loading products...</div>
             </div>
+        </div>
+    </div>
+    <!-- Edit Product Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Product</h2>
+            <form id="edit-product-form">
+                <input type="hidden" id="editProductId">
+                <div class="form-group">
+                    <label for="editProductName">Product Name</label>
+                    <input type="text" id="editProductName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editProductDescription">Description</label>
+                    <textarea id="editProductDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editProductImage">New Product Image (optional)</label>
+                    <input type="file" id="editProductImage" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <img id="currentProductImage" src="" alt="Current product image" style="max-width: 200px; display: none;">
+                </div>
+                <button type="submit" class="btn btn-primary">Update Product</button>
+            </form>
         </div>
     </div>
     <script src="js/dashboard.js"></script>
