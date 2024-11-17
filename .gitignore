@@ -19,7 +19,7 @@ pids
 *.pid.lock
 
 # Directory for uploaded files
-uploads/
+# uploads/
 
 # IDE - VSCode
 .vscode/*
